@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2351887306699963042}
   - component: {fileID: 1487766155364962425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecbc24c9b0cfdf448183fea41bc7439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7292370993033569986, guid: f0edc8dd107c759459b8e897c3e52b37, type: 3}
+  bullet: {fileID: 7292370993033569986, guid: d2deccb303a4926499f479e19f6254d9, type: 3}
   collDownTime: 2
 --- !u!1 &2375222654987914470
 GameObject:
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3705181568488020354}
   - component: {fileID: 7028894765452370599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecbc24c9b0cfdf448183fea41bc7439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7292370993033569986, guid: f0edc8dd107c759459b8e897c3e52b37, type: 3}
+  bullet: {fileID: 7292370993033569986, guid: d2deccb303a4926499f479e19f6254d9, type: 3}
   collDownTime: 2
 --- !u!1 &4119268291046551537
 GameObject:
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6969455803307719347}
   - component: {fileID: 69700594135302804}
   - component: {fileID: 3371042066991783432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyHeavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 343905403
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26a21f7773577c848bbb5209e7f50836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4643cf3b19c0e4a908e2aa2ba242e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.25
   life: 15
 --- !u!58 &3371042066991783432
 CircleCollider2D:
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208315178690935904}
   - component: {fileID: 7796378365989260665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,5 +274,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecbc24c9b0cfdf448183fea41bc7439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7292370993033569986, guid: f0edc8dd107c759459b8e897c3e52b37, type: 3}
+  bullet: {fileID: 7292370993033569986, guid: d2deccb303a4926499f479e19f6254d9, type: 3}
   collDownTime: 2

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6969455803307719347}
   - component: {fileID: 69700594135302804}
   - component: {fileID: 3371042066991783432}
-  m_Layer: 0
-  m_Name: EnemyLight
+  m_Layer: 6
+  m_Name: EnemyFast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 343905403
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 58b117cd80c29764b84dff4a101ff139, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4643cf3b19c0e4a908e2aa2ba242e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 6
   life: 1
 --- !u!58 &3371042066991783432
 CircleCollider2D:

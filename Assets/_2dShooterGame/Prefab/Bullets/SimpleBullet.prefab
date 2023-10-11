@@ -132,6 +132,7 @@ MonoBehaviour:
   maxLimitX: 3
   minLimitY: -5
   maxLimitY: 5
+  ImpactFx: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
 --- !u!58 &914772000241479684
 CircleCollider2D:
   m_ObjectHideFlags: 0

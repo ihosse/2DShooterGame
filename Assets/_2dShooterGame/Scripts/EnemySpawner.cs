@@ -1,21 +1,30 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(GameManager))]
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemyFast;
+    private GameManager gameManager;
 
     [SerializeField]
-    private GameObject enemyShooter;
+    private Enemy enemyFast;
 
     [SerializeField]
-    private GameObject enemyHeavy;
+    private Enemy enemyShooter;
+
+    [SerializeField]
+    private Enemy enemyHeavy;
 
     [SerializeField]
     private Transform[] spawners;
 
     private IEnumerator spawnerCoroutine;
+
+    private void Start()
+    {
+        gameManager = GetComponent<GameManager>();
+    }
 
     private void OnDrawGizmos()
     {
@@ -41,47 +50,48 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
 
-            CreateEnemy(enemyFast, spawners[2].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[2].transform);
 
             yield return new WaitForSeconds(.5f);
 
-            CreateEnemy(enemyFast, spawners[1].transform);
-            CreateEnemy(enemyFast, spawners[3].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[1].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[3].transform);
 
             yield return new WaitForSeconds(.5f);
 
-            CreateEnemy(enemyFast, spawners[0].transform);
-            CreateEnemy(enemyFast, spawners[4].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[0].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[4].transform);
 
             yield return new WaitForSeconds(2f);
 
-            CreateEnemy(enemyFast, spawners[1].transform);
-            CreateEnemy(enemyFast, spawners[3].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[1].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[3].transform);
 
             yield return new WaitForSeconds(2);
 
-            CreateEnemy(enemyFast, spawners[0].transform);
-            CreateEnemy(enemyFast, spawners[2].transform);
-            CreateEnemy(enemyFast, spawners[4].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[0].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[2].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[4].transform);
 
             yield return new WaitForSeconds(2);
 
-            CreateEnemy(enemyShooter, spawners[2].transform);
+            CreateEnemy(enemyShooter.gameObject, spawners[2].transform);
 
             yield return new WaitForSeconds(1);
 
-            CreateEnemy(enemyShooter, spawners[1].transform);
-            CreateEnemy(enemyShooter, spawners[3].transform);
+            CreateEnemy(enemyShooter.gameObject, spawners[1].transform);
+            CreateEnemy(enemyShooter.gameObject, spawners[3].transform);
 
             yield return new WaitForSeconds(1);
 
-            CreateEnemy(enemyFast, spawners[0].transform);
-            CreateEnemy(enemyFast, spawners[2].transform);
-            CreateEnemy(enemyFast, spawners[4].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[0].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[2].transform);
+            CreateEnemy(enemyFast.gameObject, spawners[4].transform);
 
             yield return new WaitForSeconds(3);
 
-            CreateEnemy(enemyHeavy, spawners[1].transform);
+            CreateEnemy(enemyHeavy.gameObject, spawners[1].transform);
+            CreateEnemy(enemyHeavy.gameObject, spawners[3].transform);
 
             yield return new WaitForSeconds(10);
         }
@@ -91,5 +101,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject enemy = Instantiate(selectedEnemy);
         enemy.transform.position = transform.position;
+
+        enemy.GetComponent<Enemy>().OnKilled += gameManager.OnEnemyKilled;
     }
 }

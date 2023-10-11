@@ -10,6 +10,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private float horizontalPositionMinLimit;
+    
+    [SerializeField]
+    private float verticalPositionMaxLimit;
+
+    [SerializeField]
+    private float verticalPositionMinLimit;
 
     [SerializeField]
     private float speed = 5;
@@ -44,5 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.x < horizontalPositionMinLimit)
             transform.position = new Vector2(horizontalPositionMinLimit, transform.position.y);
+        
+        if (transform.position.y > verticalPositionMaxLimit)
+            transform.position = new Vector2(transform.position.x, verticalPositionMaxLimit);
+
+        if (transform.position.y < verticalPositionMinLimit)
+            transform.position = new Vector2(transform.position.x, verticalPositionMinLimit);
     }
 }

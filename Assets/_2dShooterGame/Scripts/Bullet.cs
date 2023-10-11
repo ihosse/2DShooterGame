@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     private float maxLimitY;
 
     [SerializeField]
-    private GameObject impactEffect;
+    private GameObject ImpactFx;
 
     private void Update()
     {
@@ -46,6 +46,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             element.TakeDamage(damage);
+
+            GameObject effect = Instantiate(ImpactFx.gameObject, transform.position, Quaternion.identity);
+            Destroy(effect, .5f);
         }
     }
 }

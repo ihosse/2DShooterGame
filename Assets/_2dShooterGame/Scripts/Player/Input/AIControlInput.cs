@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DefaultSystemInput : InputHandler
+public class AIControlInput : InputHandler
 {
     [SerializeField]
     private string horizontalAxisName = "Horizontal";
@@ -13,16 +13,16 @@ public class DefaultSystemInput : InputHandler
 
     public override float GetHorizontalAxis()
     {
-        return Input.GetAxis(horizontalAxisName);
+        return Input.GetAxis("Horizontal");
     }
 
     public override float GetVerticalAxis()
     {
-        return Input.GetAxis(verticalAxisName);
+        return Input.GetAxis("Vertical");
     }
 
     public override bool GetFire1Button()
     {
-        return Input.GetButton(fire1ButtonName);
+        return Input.GetButton("Fire1");
     }
 }

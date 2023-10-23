@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Explosion))]
+[RequireComponent(typeof(InputHandler))]
 public class PlayerController : MonoBehaviour, ITakeDamage
 {
     public event Action OnKilled;
 
     public InputHandler InputHandler { get { return inputHandler; } }
 
-    [SerializeField]
     private InputHandler inputHandler;
 
     private Explosion explosion;
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     {
         IsInControl = true;
         explosion = GetComponent<Explosion>();
+
+        inputHandler = GetComponent<InputHandler>();
     }
 
     public void ActivateControl(bool value)

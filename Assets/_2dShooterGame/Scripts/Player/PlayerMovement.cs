@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         Move();
-        LimitHorizontalMovement();
+        LimitMovement();
     }
 
     private void Move()
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position += direction * Time.deltaTime * speed;
     }
 
-    private void LimitHorizontalMovement()
+    private void LimitMovement()
     {
         if (transform.position.x > horizontalPositionMaxLimit)
             transform.position = new Vector2(horizontalPositionMaxLimit, transform.position.y);

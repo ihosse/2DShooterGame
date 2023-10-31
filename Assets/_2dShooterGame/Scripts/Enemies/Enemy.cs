@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private Explosion explosion;
     private Weapon[] weapons;
+    private float movementLimitY = -5;
 
     private void Start()
     {
@@ -33,6 +34,11 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private void Move()
     {
         transform.Translate(Vector2.up * Time.deltaTime * speed);
+
+        if(transform.position.y <= movementLimitY)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Shot()

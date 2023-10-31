@@ -13,12 +13,16 @@ public class MenuController : MonoBehaviour
 
     private InputHandler inputHandler;
 
+    private PlayerInfo playerInfo;
+
     private void Start()
     {
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+
         inputHandler = GetComponent<InputHandler>();
 
-        hud.UpdateScore(Globals.PlayerScore);
-        hud.UpdateHiScore(Globals.PlayerHighScore);
+        hud.UpdateScore(playerInfo.Score);
+        hud.UpdateHiScore(playerInfo.HighScore);
     }
 
     private void Update()

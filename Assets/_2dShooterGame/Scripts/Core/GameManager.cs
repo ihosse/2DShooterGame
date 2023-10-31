@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(EnemySpawner))]
 public class GameManager : MonoBehaviour
 {
-    private EnemySpawner enemySpawner;
-
     [SerializeField]
     private PlayerController playerController;
-    
+
     [SerializeField]
     private HUD hud;
 
     [SerializeField]
     private string menuSceneName;
 
-
+    private EnemySpawner enemySpawner;
+    private PlayerInfo playerInfo;
     private void Start()
     {
-        Globals.PlayerScore = 0;
-        hud.UpdateScore(Globals.PlayerScore);
-        hud.UpdateHiScore(Globals.PlayerHighScore);
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+
+        playerInfo.Score = 0;
+
+        hud.UpdateScore(playerInfo.Score);
+        hud.UpdateHiScore(playerInfo.HighScore);
 
         playerController.OnKilled += OnPlayerKilled;
 
@@ -29,15 +31,15 @@ public class GameManager : MonoBehaviour
         enemySpawner.Activate();
     }
 
-    public void OnEnemyKilled(int points) 
+    public void OnEnemyKilled(int points)
     {
-        Globals.PlayerScore += points;
-        hud.UpdateScore(Globals.PlayerScore);
+        playerInfo.Score += points;
+        hud.UpdateScore(playerInfo.Score);
 
-        if (Globals.PlayerScore > Globals.PlayerHighScore)
+        if (playerInfo.Score > playerInfo.HighScore)
         {
-            Globals.PlayerHighScore = Globals.PlayerScore;
-            hud.UpdateHiScore(Globals.PlayerHighScore);
+            playerInfo.HighScore = playerInfo.Score;
+            hud.UpdateHiScore(playerInfo.HighScore);
         }
     }
     private void OnPlayerKilled()
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameOver());
     }
 
-    private IEnumerator GameOver() 
+    private IEnumerator GameOver()
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(menuSceneName);
